@@ -4,7 +4,10 @@
     {
       "src": "models/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "250mb" }
+      "config": {
+        "maxLambdaSize": "250mb",
+        "pythonVersion": "3.10"
+      }
     },
     {
       "src": "models/static/**/*",
@@ -22,3 +25,4 @@
     }
   ]
 }
+
