@@ -10,6 +10,9 @@ from .model_handles import *
 from django.conf import settings
 
 # Create your views here.
+@csrf_exempt
+def connection_success(request):
+    return JsonResponse({"message" :"Hello connection has been done successfully..!"})
 
 # Todo -> Establish a connection from front-end
 
