@@ -2,14 +2,14 @@ import datetime
 
 from django.db import models
 
-from . import model_handles
+# from . import model_handles
 # Create your models here.
 from django.db import models
 from django.utils import timezone
 
 
-from django.urls import path
-from django.contrib import admin
+# from django.urls import path
+# from django.contrib import admin
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
@@ -33,24 +33,24 @@ class Choice(models.Model):
         return self.choice_text
     
 
-# Todo -> Create a class of retrieving data from the database
-class TensorFlowModel(models.Model):
-    name = models.CharField(max_length=100)
+# # Todo -> Create a class of retrieving data from the database
+# class TensorFlowModel(models.Model):
+#     name = models.CharField(max_length=100)
     
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
-class TFModel(admin.ModelAdmin):
-    def get_urls(self):
-        # Inherit the default admin URLs
-        urls = super().get_urls()
+# class TFModel(admin.ModelAdmin):
+#     def get_urls(self):
+#         # Inherit the default admin URLs
+#         urls = super().get_urls()
 
-        # Add custom URL for loading the TensorFlow model
-        custom_urls = [
-            path('load-model/', self.admin_site.admin_view(model_handles.load_h5_model_view), name='load_h5_model'),
-        ]
-        return custom_urls + urls
+#         # Add custom URL for loading the TensorFlow model
+#         custom_urls = [
+#             path('load-model/', self.admin_site.admin_view(model_handles.load_h5_model_view), name='load_h5_model'),
+#         ]
+#         return custom_urls + urls
     
 # Register the model with the custom admin
-admin.site.register(TensorFlowModel, TFModel)
+# admin.site.register(TensorFlowModel, TFModel)
