@@ -1,12 +1,20 @@
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from .model_handles import *
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.renderers import JSONRenderer
 
 
 # Create your views here.
-@csrf_exempt
-def connection_success(request):
-    return JsonResponse({"message" :"Hello connection has been done successfully..!"})
+class MyApiView(APIView):
+    
+    renderer_classes = [JSONRenderer] 
+    
+    def get(self, request):
+        
+        data = {"message": "Send a POST request with a CSV file to this endpoint."}
+        return Response(data, status=200)
 
 # # Todo -> Establish a connection from front-end
 
